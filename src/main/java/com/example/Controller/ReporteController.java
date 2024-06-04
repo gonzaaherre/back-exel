@@ -34,7 +34,7 @@ public class ReporteController {
                 .headers(headers)
                 .body(excelContent);
     }
-
+    // http://localhost:8080/reporte/pdf/1
     @GetMapping("/pdf/{id}")
     public ResponseEntity<byte[]> generarPdfInstrumento(@PathVariable Long id) {
         try {
