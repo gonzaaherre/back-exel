@@ -23,6 +23,14 @@ public class UsuarioServiceImp implements UsuarioService {
     public Usuario save(Usuario usuario) {
         usuario.setClave(MD5Encriptador(usuario.getClave()));
         return usuarioRepository.save(usuario);
+
+    }
+    @Override
+    public Usuario existsUsuarioByNombreUsuarioAndClave(String nombreUsuario, String clave) {
+        if(usuarioRepository.existsByNombreUsuarioAndClave(nombreUsuario,MD5Encriptador(clave))){
+            return usuarioRepository.findByNombreUsuario(nombreUsuario).get();
+        }
+        return null;
     }
 
     @Override
@@ -37,6 +45,11 @@ public class UsuarioServiceImp implements UsuarioService {
         var newEntity = usuarioRepository.save(usuario);
         logger.info("Actualizada entidad {}",newEntity);
         return newEntity;
+    }
+
+    @Override
+    public Usuario findByNombreUsuario(String nombre) {
+        return usuarioRepository.findByNombreUsuario(nombre).get();
     }
 
     @Override

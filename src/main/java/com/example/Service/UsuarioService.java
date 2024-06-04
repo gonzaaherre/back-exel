@@ -12,4 +12,6 @@ public interface UsuarioService {
     Usuario findById(Long id);
     List<Usuario> findAll();
     Boolean delete(Long id);
+    Usuario findByNombreUsuario(String nombre);
+    public Usuario existsUsuarioByNombreUsuarioAndClave(String nombreUsuario, String clave);
 }

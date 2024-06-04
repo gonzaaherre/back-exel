@@ -13,6 +13,15 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @GetMapping("/getByName")
+    public ResponseEntity<?> findById(@RequestParam String nombre){
+        return ResponseEntity.ok(usuarioService.findByNombreUsuario(nombre));
+    }
+    @GetMapping("/existByNameClave")
+    public ResponseEntity<?> existByNameClave(@RequestParam String nombre,@RequestParam String clave){
+        return ResponseEntity.ok(usuarioService.existsUsuarioByNombreUsuarioAndClave(nombre,clave));
+    }
+
     @GetMapping
     public ResponseEntity<?> findAll(){
         return ResponseEntity.ok(usuarioService.findAll());
