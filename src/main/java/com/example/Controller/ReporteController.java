@@ -13,6 +13,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/reporte")
+@CrossOrigin("*")
 public class ReporteController {
     @Autowired
     private ReporteService reporteService;
