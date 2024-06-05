@@ -68,5 +68,15 @@ public class PedidoServiceImp implements PedidoService {
             return pedidoRepository.findAllByFechaPedidoBetween(fechaDesde,fechaHasta);
     }
 
+    @Override
+    public List<Object[]> findByMesYaño() {
+        return pedidoRepository.findPedidosGroupedByMonthAndYear();
+    }
+
+    @Override
+    public List<Object[]> findByInstrumentoAgrupado() {
+        return pedidoRepository.findPedidosDetalleGroupedByInstrumento();
+    }
+
 
 }
