@@ -105,7 +105,7 @@ public class ReporteServiceImpl implements ReporteService {
                 if (instrumento.getImagen() != null && !instrumento.getImagen().isEmpty()) {
                     try (InputStream imageStream = new URL(instrumento.getImagen()).openStream()) {
                         PDImageXObject pdImage = PDImageXObject.createFromByteArray(document, imageStream.readAllBytes(), "imagen");
-                        contentStream.drawImage(pdImage, 100, 460, 250, 250); // Ajusta la posición y tamaño según sea necesario
+                        contentStream.drawImage(pdImage, 100, 460, 230, 230); // Ajusta la posición y tamaño según sea necesario
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
